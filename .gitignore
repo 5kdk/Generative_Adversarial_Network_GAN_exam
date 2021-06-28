@@ -1,0 +1,14 @@
+# extension
+*.png
+ 
+# exception files
+!img-101.png
+!img-1001.png
+!img-3001.png
+!img-5001.png
+!img-7001.png
+!img-10001.png
+!img-20001.png
+!img-30001.png
+!img-50001.png
+!img-99901.png
