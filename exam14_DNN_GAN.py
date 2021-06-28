@@ -46,7 +46,7 @@ print(discriminator_model.summary())
 
 discriminator_model.compile(loss='binary_crossentropy',
                             optimizer='adam', metrics=['acc'])
-discriminator_model.trainable = False # 학습 x(backward x)
+discriminator_model.trainable = False # 학습 x(backward x), 생성자와 구분자의 동등한 대립을 위해 학습제어
 
 
 # build GAN
@@ -75,7 +75,6 @@ for itr in range(epoch):
     
     d_loss, d_acc = 0.5 * np.add(d_hist_real, d_hist_fake) # real과 fake의 평균 loss, accuracy
     
-    discriminator_model.trainable = False  # 생성자와 구분자의 동등한 대립을 위해 학습제어
     
     z = np.random.normal(size=(batch_size, noise))  # 정규분포 노이즈 (128, 100)
     gan_hist = gan_model.train_on_batch(z, real) # fake img에 label은 real로
