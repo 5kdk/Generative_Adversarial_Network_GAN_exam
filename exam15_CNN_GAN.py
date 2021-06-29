@@ -11,7 +11,7 @@ if not os.path.exists(OUT_DIR):
 
 # 변수 선언
 img_shape = (28, 28, 1)
-epoch = 10000
+epoch = 50000
 batch_size = 128
 noise = 100
 sample_interval = 100
@@ -28,7 +28,7 @@ print(X_train.shape)
 # build generator
 generator_model = Sequential()
 generator_model.add(Dense(256*7*7, input_dim=noise))
-generator_model.add(Reshape((7, 7, 256)))
+generator_model.add(Reshape((7,7,256)))
 # Conv2DTranspose - 업 샘플링 이후 컨블루션
 generator_model.add(Conv2DTranspose(128, kernel_size=3,
                                     strides=2, padding='same'))
@@ -102,7 +102,7 @@ for itr in range(epoch):
     
     d_loss, d_acc = 0.5 * np.add(d_hist_real, d_hist_fake) # real과 fake의 평균 loss, accuracy
 
-    
+    #for i in range(5):
     z = np.random.normal(size=(batch_size, noise))  # 정규분포 노이즈 (128, 100)
     gan_hist = gan_model.train_on_batch(z, real) # fake img에 label은 real로
         

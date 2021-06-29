@@ -1,6 +1,7 @@
 # extension
 *.png
- 
+*.jpg
+
 # exception files
 !img-101.png
 !img-1001.png
