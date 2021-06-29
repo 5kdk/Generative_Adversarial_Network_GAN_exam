@@ -1,6 +1,9 @@
 # extension
-*.png
-*.jpg
+
+
+# folder
+CNN_OUT_img/
+DNN_OUT_img/
 
 # exception files
 !img-101.png
